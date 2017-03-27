@@ -1,0 +1,207 @@
+html {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin-bottom: 60px;
+}
+
+.navbar-default {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#main-header {
+    color: white;
+    height: 100%;
+    min-height: 400px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f46b45;
+    background: -webkit-linear-gradient(52deg, #f46b45, #eea849);
+    background: linear-gradient(52deg, #f46b45, #eea849);
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    background-color: initial;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: orange;
+}
+
+#tabnav {
+    position: absolute;
+    bottom: 0;
+}
+
+#screen_agenda, #screen_news {
+    display: none;
+}
+
+#header_weather {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+
+#main {
+    margin-top: 30px;
+}
+
+#weather_today_section {
+    display: inline-block;
+}
+
+.navbar-brand {
+    cursor: default;
+}
+
+
+/* .navbar-header {
+left: 50%;
+position: relative;
+transform: translateX(-50%);
+}*/
+
+.panel-tech {
+    border-color: #03a9f4;
+}
+
+.panel-tech>.panel-heading {
+    color: #ffffff;
+    background-color: #03a9f4;
+    border-color: #03a9f4;
+}
+
+.panel-business {
+    border-color: #8bc34a;
+}
+
+.panel-business>.panel-heading {
+    color: #ffffff;
+    background-color: #8bc34a;
+    border-color: #8bc34a;
+}
+
+.panel-science {
+    border-color: #ffc107;
+}
+
+.panel-science>.panel-heading {
+    color: #ffffff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.panel-sport {
+    border-color: #3f51b5;
+}
+
+.panel-sport>.panel-heading {
+    color: #ffffff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+.panel-entertainment {
+    border-color: #9c27b0;
+}
+
+.panel-entertainment>.panel-heading {
+    color: #ffffff;
+    background-color: #9c27b0;
+    border-color: #9c27b0;
+}
+
+.panel-img {
+    position: relative;
+    height: 500px;
+    background-image: url("https://tctechcrunch2011.files.wordpress.com/2013/10/techcrunch-gadgets-icon_rect.png?w=450&h=200&crop=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel-heading-title {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+}
+
+.panel-nav {
+    font-size: 24px;
+    border-bottom: none;
+}
+
+.panel-bottom-color {
+    position: relative;
+    background-color: #c4c4c4;
+    width: 100%;
+    height: 5px;
+}
+
+.panel-bottom-technology {
+    background-color: #03a9f4;
+}
+
+.panel-bottom-business {
+    background-color: #8bc34a;
+}
+
+.panel-bottom-science {
+    background-color: #ffc107;
+}
+
+.panel-bottom-sports {
+    background-color: #3f51b5;
+}
+
+.panel-bottom-entertainment {
+    background-color: #9c27b0;
+}
+
+.modal-content {
+    box-shadow: none;
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+    background-color: white;
+}
+
+#template_technology_card, #template_business_card, #template_science_card, #template_sport_card, #template_entertainment_card, #template_calendar_card{
+  display: none;
+}
+
+.scrollUpBtn {
+    background-color: orange;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    z-index: 1051;
+}

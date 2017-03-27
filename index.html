@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Viewports -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Desc. -->
+    <title>Journ&eacute;e</title>
+    <meta name="description" content="Journee is a small webapp that shows you the weather, some news, and your agenda.">
+    <meta name="author" content="Zyplos">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="custom.css" rel="stylesheet" type="text/css">
+    <!-- OpenGraph -->
+    <meta property="og:url" content="https://zyplos.github.io/journee/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Journee">
+    <meta property="og:description" content="Journee is a small webapp that shows you the weather, some news, and your agenda.">
+    <!--<meta property="og:image" content="https://2501codelab.github.io/lost-and-found/assets/media/fb_bk.png">-->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@Zyplos" />
+    <!-- Mobile -->
+    <meta name="theme-color" content="#eb8f3f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/journee/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/journee/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/journee/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/journee/manifest.json">
+    <link rel="mask-icon" href="/journee/safari-pinned-tab.svg" color="#eb8f3f">
+    <link rel="shortcut icon" href="/journee/favicon.ico">
+    <meta name="msapplication-config" content="/journee/browserconfig.xml">
+    
+</head>
+
+<body>
+
+    <!-- -->
+    <div class="modal fade" id="initModal" tabindex="-1" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center">Welcome!</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="initCarousel" class="carousel slide">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active" id="init_carousel_start">
+                                <p>Journ&eacute;e is an app that gives you information such as Weather and News quickly, along with any events you may have.</p>
+                                <p>Journ&eacute;e is powered by Dark Sky, the News API, and Google Calendar.</p> <br>
+                                <p>Now, let's get started!</p>
+                            </div>
+                            <div class="item text-center" id="init_carousel_name">
+                                <h3 class="text-center">What's your name?</h3> <br>
+                                <div class="form-group"> <input type="text" class="form-control" id="init_name_input" placeholder="First Name" style="height: 51px"> </div>
+                            </div>
+                            <div class="item" id="init_carousel_weather">
+                                <h3 class="text-center">Weather</h3> <br>
+                                <p>Journ&eacute;e lets you see a weather forecast for your area. Enter the city you would like to get the forecast for. Or, get your current location for more accurate forecasts.</p>
+                                <div class="form-group">
+                                    <div class="col-xs-8"> <input type="text" class="form-control" id="init_weather_input" placeholder="Chicago, IL" style="height: 51px"> </div>
+                                    <div class="col-xs-4"> <button class="btn btn-primary" id="init_weather_locBtn"><i class="material-icons init_weather_locBtnIcon">near_me</i></button> </div>
+                                </div>
+                            </div>
+
+                            <div class="item" id="init_carousel_calendar">
+                                <h3 class="text-center">Agenda</h3> <br>
+                                <p>Journ&eacute;e can also connect to your Google Calendar and show you upcoming events.</p>
+                                <div class="text-center"> <button style="display: none;" class="btn btn-primary center-block authorize-button">Authorize</button> <button style="display: none;" class="btn btn-default center-block signout-button">Sign Out</button> </div>
+                            </div>
+                            <div class="item text-center" id="init_carousel_finish">
+                                <h3 class="text-center">You're all set!</h3> <br>
+                                <p>You can change anything here in your settings.</p> <br> <button class="btn btn-default" id="init_finish">Continue to App</button> </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button class="btn btn-default pull-left" id="init_back" style="display:none"><i class="material-icons">arrow_back</i></button> <button class="btn btn-default" id="init_forward"><i class="material-icons">arrow_forward</i></button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div class="modal fade" id="techModal" tabindex="-1" role="dialog" data-backdrop="static">
+
+        <!-- -->
+        <div class="scrollUpBtn"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- -->
+
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title">Technology</h1>
+                </div>
+                <div class="modal-body news_modal_body_technology">
+
+                    <!-- -->
+                    <div class="panel panel-primary panel-tech" id="template_technology_card">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="news_author"></span> on <span class="news_date"></span></h3>
+                        </div>
+                        <div class="panel-img">
+                            <div class="panel-heading-title"></div>
+                        </div>
+                        <div class="panel-body">
+                            <p class="news_description"></p>
+                        </div>
+                        <div class="panel-footer"><a class="btn btn-default btn-block news_urlBtn" target="_blank">Read on <span class="news_urlBtnSource"></span></a></div>
+                    </div>
+
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div class="modal fade" id="businessModal" tabindex="-1" role="dialog" data-backdrop="static">
+        <!-- -->
+        <div class="scrollUpBtn"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title">Business</h1>
+                </div>
+                <div class="modal-body news_modal_body_business">
+                    <!-- -->
+                    <div class="panel panel-primary panel-business" id="template_business_card">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="news_author"></span> on <span class="news_date"></span></h3>
+                        </div>
+                        <div class="panel-img">
+                            <div class="panel-heading-title"></div>
+                        </div>
+                        <div class="panel-body">
+                            <p class="news_description"></p>
+                        </div>
+                        <div class="panel-footer"><a class="btn btn-default btn-block news_urlBtn" target="_blank">Read on <span class="news_urlBtnSource"></span></a></div>
+                    </div>
+
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div class="modal fade" id="scienceModal" tabindex="-1" role="dialog" data-backdrop="static">
+        <!-- -->
+        <div class="scrollUpBtn"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title">Science</h1>
+                </div>
+                <div class="modal-body news_modal_body_science">
+                    <!-- -->
+                    <div class="panel panel-primary panel-science" id="template_science_card">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="news_author"></span> on <span class="news_date"></span></h3>
+                        </div>
+                        <div class="panel-img">
+                            <div class="panel-heading-title"></div>
+                        </div>
+                        <div class="panel-body">
+                            <p class="news_description"></p>
+                        </div>
+                        <div class="panel-footer"><a class="btn btn-default btn-block news_urlBtn" target="_blank">Read on <span class="news_urlBtnSource"></span></a></div>
+                    </div>
+
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div class="modal fade" id="sportModal" tabindex="-1" role="dialog" data-backdrop="static">
+        <!-- -->
+        <div class="scrollUpBtn"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title">Sports</h1>
+                </div>
+                <div class="modal-body news_modal_body_sport">
+                    <!-- -->
+                    <div class="panel panel-primary panel-sport" id="template_sport_card">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="news_author"></span> on <span class="news_date"></span></h3>
+                        </div>
+                        <div class="panel-img">
+                            <div class="panel-heading-title"></div>
+                        </div>
+                        <div class="panel-body">
+                            <p class="news_description"></p>
+                        </div>
+                        <div class="panel-footer"><a class="btn btn-default btn-block news_urlBtn" target="_blank">Read on <span class="news_urlBtnSource"></span></a></div>
+                    </div>
+
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+
+    <div class="modal fade" id="entertainmentModal" tabindex="-1" role="dialog" data-backdrop="static">
+        <!-- -->
+        <div class="scrollUpBtn"><i class="material-icons">keyboard_arrow_up</i></div>
+        <!-- -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title">Entertainment</h1>
+                </div>
+                <div class="modal-body news_modal_body_entertainment">
+                    <!-- -->
+                    <div class="panel panel-primary panel-entertainment" id="template_entertainment_card">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="news_author"></span> on <span class="news_date"></span></h3>
+                        </div>
+                        <div class="panel-img">
+                            <div class="panel-heading-title"></div>
+                        </div>
+                        <div class="panel-body">
+                            <p class="news_description"></p>
+                        </div>
+                        <div class="panel-footer"><a class="btn btn-default btn-block news_urlBtn" target="_blank">Read on <span class="news_urlBtnSource"></span></a></div>
+                    </div>
+
+                    <!-- -->
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header"> <a class="navbar-brand" href="#">Journ&eacute;e</a> </div>
+        </div>
+    </nav>
+    <div class="jumbotron" id="main-header">
+        <div class="container">
+            <h1 id="welcome_msg">Hello, <span id="header_user"></span></h1>
+            <div id="header_weather"> <canvas id="header_icon" width="128" height="128"></canvas>
+                <h1 style="margin-left: 20px"><span id="header_temp"></span>&deg; <small style="color:white" id="header_desc"></small></h1>
+            </div>
+            <p id="header_loc"></p>
+        </div>
+        <div class="btn-group btn-group-justified" id="tabnav"> <a href="#" class="btn btn-default" id="tab_weather">Weather</a> <a href="#" class="btn btn-default" id="tab_news">News</a> <a href="#" class="btn btn-default" id="tab_agenda">Agenda</a> </div>
+    </div>
+
+    <!-- -->
+    <div class="container" id="main">
+
+        <!-- -->
+        <div id="screen_weather" class="">
+            <h2>Today</h2>
+            <div class="text-center"> <canvas id="weather_icon_today" width="128" height="128" class=""></canvas>
+                <div>
+                    <h2 style="margin-top:0;display: inline-block;"><span id="weather_temp_todayMin"></span>&deg;</h2><span>Min</span>
+                    <h2 style="margin-top:0;margin-left:30px;display: inline-block;"><span id="weather_temp_todayMax"></span>&deg;</h2><span>Max</span> </div>
+                <h4 id="weather_desc_today"></h4>
+            </div>
+            <!-- -->
+            <h2>Next 4 Hours</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_hourly1" width="128" height="128" class=""></canvas>
+                        <h2 style="margin-top:0;"><span id="weather_temp_hourly1"></span>&deg;</h2>
+                        <h4 id="weather_desc_hourly1"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_hourly2" width="128" height="128" class=""></canvas>
+                        <h2 style="margin-top:0;"><span id="weather_temp_hourly2"></span>&deg;</h2>
+                        <h4 id="weather_desc_hourly2"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_hourly3" width="128" height="128" class=""></canvas>
+                        <h2 style="margin-top:0;"><span id="weather_temp_hourly3"></span>&deg;</h2>
+                        <h4 id="weather_desc_hourly3"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_hourly4" width="128" height="128" class=""></canvas>
+                        <h2 style="margin-top:0;"><span id="weather_temp_hourly4"></span>&deg;</h2>
+                        <h4 id="weather_desc_hourly4"></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <h2>Next 4 Days</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_daily1" width="128" height="128" class=""></canvas>
+                        <div>
+                            <h2 style="margin-top:0;display: inline-block;"><span id="weather_temp_daily1Min"></span>&deg;</h2><span>Min</span>
+                            <h2 style="margin-top:0;margin-left:30px;display: inline-block;"><span id="weather_temp_daily1Max"></span>&deg;</h2><span>Max</span> </div>
+                        <h4 id="weather_desc_daily1"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_daily2" width="128" height="128" class=""></canvas>
+                        <div>
+                            <h2 style="margin-top:0;display: inline-block;"><span id="weather_temp_daily2Min"></span>&deg;</h2><span>Min</span>
+                            <h2 style="margin-top:0;margin-left:30px;display: inline-block;"><span id="weather_temp_daily2Max"></span>&deg;</h2><span>Max</span> </div>
+                        <h4 id="weather_desc_daily2"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_daily3" width="128" height="128" class=""></canvas>
+                        <div>
+                            <h2 style="margin-top:0;display: inline-block;"><span id="weather_temp_daily3Min"></span>&deg;</h2><span>Min</span>
+                            <h2 style="margin-top:0;margin-left:30px;display: inline-block;"><span id="weather_temp_daily3Max"></span>&deg;</h2><span>Max</span> </div>
+                        <h4 id="weather_desc_daily3"></h4>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="text-center"> <canvas id="weather_icon_daily4" width="128" height="128" class=""></canvas>
+                        <div>
+                            <h2 style="margin-top:0;display: inline-block;"><span id="weather_temp_daily4Min"></span>&deg;</h2><span>Min</span>
+                            <h2 style="margin-top:0;margin-left:30px;display: inline-block;"><span id="weather_temp_daily4Max"></span>&deg;</h2><span>Max</span> </div>
+                        <h4 id="weather_desc_daily4"></h4>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+        </div>
+        <!-- -->
+        <div id="screen_news">
+            <div class="panel panel-default panel-nav">
+                <div class="panel-body"> <span>Technology</span> <span class="pull-right" id="techModalBtn"><i class="material-icons">forward</i></span></div>
+                <div class="panel-bottom-color panel-bottom-technology"></div>
+            </div>
+            <div class="panel panel-default panel-nav">
+                <div class="panel-body"> <span>Business</span><span class="pull-right" id="businessModalBtn"><i class="material-icons">forward</i></span> </div>
+                <div class="panel-bottom-color panel-bottom-business"></div>
+            </div>
+            <div class="panel panel-default panel-nav">
+                <div class="panel-body"> <span>Science</span><span class="pull-right" id="scienceModalBtn"><i class="material-icons">forward</i></span> </div>
+                <div class="panel-bottom-color panel-bottom-science"></div>
+            </div>
+            <div class="panel panel-default panel-nav">
+                <div class="panel-body"> <span>Sports</span><span class="pull-right" id="sportModalBtn"><i class="material-icons">forward</i></span> </div>
+                <div class="panel-bottom-color panel-bottom-sports"></div>
+            </div>
+            <div class="panel panel-default panel-nav">
+                <div class="panel-body"> <span>Entertainment</span><span class="pull-right" id="entertainmentModalBtn"><i class="material-icons">forward</i></span> </div>
+                <div class="panel-bottom-color panel-bottom-entertainment"></div>
+            </div>
+        </div>
+        <!-- -->
+        <div id="screen_agenda">
+
+            <div class="text-center"> <button style="display: none;" class="btn btn-primary center-block authorize-button">Authorize</button> <button style="display: none;" class="btn btn-default center-block signout-button">Sign Out</button> </div>
+
+            <br>
+
+            <div id="agenda_list"></div>
+
+            <div class="panel panel-primary" style="border-color: #ff3e3e;" id="template_calendar_card">
+                <div class="panel-heading" style="background-color: #ff3e3e; border-color: #ff3e3e;">
+                    <h3 class="panel-title"><span class="agenda_calendarName"></span></h3>
+                </div>
+                <div class="panel-body">
+                    <h3 class="agenda_eventTitle" style="margin-top:0"></h3>
+                </div>
+            </div>
+
+        </div>
+        <!-- -->
+    </div>
+
+
+
+    <!-- --><br>
+    <footer>
+        <div class="container" style="color: white">
+            <div style="padding-top: 30px" class="pull-left">
+                <p>Copyright &copy; Zyplos 2017</p>
+            </div>
+            <div style="padding-top: 20px" class="pull-right"> <img src="z.svg" style="height: 45px" /> </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+    <script src="skycons.js"></script>
+</body>
+
+</html>
