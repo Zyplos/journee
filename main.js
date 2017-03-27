@@ -536,6 +536,12 @@ $(".scrollUpBtn").click(function() {
     }, 500);
 });
 
+$("#settingsBtn").click(function() {
+    $("#initModal").modal('show');
+    $("#init_name_input").val(localStorage.name);
+    $("#init_weather_input").val(weatherData.city + ", " + weatherData.state);
+});
+
 /////
 
 var CLIENT_ID = '642579947353-05qqqb9heom2j074m62d9brpp9pjegtt.apps.googleusercontent.com';

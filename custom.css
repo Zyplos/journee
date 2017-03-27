@@ -205,3 +205,10 @@ transform: translateX(-50%);
     color: white;
     z-index: 1051;
 }
+
+#settingsBtn {
+    position: absolute;
+    top: 14.5px;
+    right: 15px;
+    cursor: pointer;
+}

@@ -36,7 +36,7 @@
     <link rel="mask-icon" href="/journee/safari-pinned-tab.svg" color="#eb8f3f">
     <link rel="shortcut icon" href="/journee/favicon.ico">
     <meta name="msapplication-config" content="/journee/browserconfig.xml">
-    
+
 </head>
 
 <body>
@@ -248,10 +248,22 @@
     <!-- -->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header"> <a class="navbar-brand" href="#">Journ&eacute;e</a> </div>
+            <div class="navbar-header"> <a class="navbar-brand" href="#">Journ&eacute;e</a> 
+            
+            
+            
+            
+            
+            
+            </div>
+          
+            
         </div>
     </nav>
     <div class="jumbotron" id="main-header">
+        
+        <div id="settingsBtn"><i class="material-icons">settings</i></div>
+        
         <div class="container">
             <h1 id="welcome_msg">Hello, <span id="header_user"></span></h1>
             <div id="header_weather"> <canvas id="header_icon" width="128" height="128"></canvas>
@@ -266,7 +278,7 @@
     <div class="container" id="main">
 
         <!-- -->
-        <div id="screen_weather" class="">
+        <div id="screen_weather">
             <h2>Today</h2>
             <div class="text-center"> <canvas id="weather_icon_today" width="128" height="128" class=""></canvas>
                 <div>
@@ -339,6 +351,7 @@
                 </div>
             </div>
             <!-- -->
+            <p><i><a href="https://darksky.net" target="_blank">Powered by Dark Sky</a></i></p>
         </div>
         <!-- -->
         <div id="screen_news">
@@ -362,6 +375,7 @@
                 <div class="panel-body"> <span>Entertainment</span><span class="pull-right" id="entertainmentModalBtn"><i class="material-icons">forward</i></span> </div>
                 <div class="panel-bottom-color panel-bottom-entertainment"></div>
             </div>
+            <p><i><a href="https://newsapi.org/" target="_blank">Powered by NewsAPI.org</a></i></p>
         </div>
         <!-- -->
         <div id="screen_agenda">
@@ -380,7 +394,7 @@
                     <h3 class="agenda_eventTitle" style="margin-top:0"></h3>
                 </div>
             </div>
-
+            <p><i><a href="https://calendar.google.com" target="_blank">See your Google Calendar here.</a></i></p>
         </div>
         <!-- -->
     </div>
