@@ -538,7 +538,7 @@ $(".scrollUpBtn").click(function() {
 
 /////
 
-var CLIENT_ID = '642579947353-23h290kjcnjlubdst7jjpi75q3un2epg.apps.googleusercontent.com';
+var CLIENT_ID = '642579947353-05qqqb9heom2j074m62d9brpp9pjegtt.apps.googleusercontent.com';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -629,7 +629,7 @@ function listUpcomingEvents() {
             gapi.client.calendar.events.list({
                 'calendarId': response.result.items[i].id,
                 'timeMin': (new Date()).toISOString(),
-                //'timeMax': maxDate.toISOString(),
+                'timeMax': maxDate.toISOString(),
                 'showDeleted': false,
                 'singleEvents': true,
                 'maxResults': 10,
