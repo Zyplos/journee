@@ -542,6 +542,12 @@ $("#settingsBtn").click(function() {
     $("#init_weather_input").val(weatherData.city + ", " + weatherData.state);
 });
 
+$(window).on('load', function(e) {
+    $("#loader").fadeOut();
+});
+
+
+
 /////
 
 var CLIENT_ID = '642579947353-05qqqb9heom2j074m62d9brpp9pjegtt.apps.googleusercontent.com';

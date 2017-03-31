@@ -34,11 +34,13 @@ body {
     margin-bottom: 0;
 }
 
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
     background-color: initial;
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
     border: none;
 }
 
@@ -53,7 +55,8 @@ footer {
     bottom: 0;
 }
 
-#screen_agenda, #screen_news {
+#screen_agenda,
+#screen_news {
     display: none;
 }
 
@@ -194,8 +197,13 @@ transform: translateX(-50%);
     background-color: white;
 }
 
-#template_technology_card, #template_business_card, #template_science_card, #template_sport_card, #template_entertainment_card, #template_calendar_card{
-  display: none;
+#template_technology_card,
+#template_business_card,
+#template_science_card,
+#template_sport_card,
+#template_entertainment_card,
+#template_calendar_card {
+    display: none;
 }
 
 .scrollUpBtn {
@@ -211,4 +219,266 @@ transform: translateX(-50%);
     top: 14.5px;
     right: 15px;
     cursor: pointer;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+
+/* Originally by http://cssload.net/ */
+
+#cssload-global {
+    width: 110px;
+    margin: auto;
+    margin-top: 100px;
+    position: relative;
+    height: 58px;
+}
+
+.cssload-mask {
+    position: absolute;
+    border-radius: 3px;
+    overflow: hidden;
+    perspective: 1000;
+    -o-perspective: 1000;
+    -ms-perspective: 1000;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.cssload-plane {
+    background: rgb(255, 62, 62);
+    width: 400%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    transform: translate3d(0px, 0, 0);
+    -o-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    perspective: 1000;
+    -o-perspective: 1000;
+    -ms-perspective: 1000;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+#cssload-top .cssload-plane {
+    z-index: 2000;
+    animation: cssload-trans1 1.165s ease-out infinite 0s backwards;
+    -o-animation: cssload-trans1 1.165s ease-out infinite 0s backwards;
+    -ms-animation: cssload-trans1 1.165s ease-out infinite 0s backwards;
+    -webkit-animation: cssload-trans1 1.165s ease-out infinite 0s backwards;
+    -moz-animation: cssload-trans1 1.165s ease-out infinite 0s backwards;
+}
+
+#cssload-middle .cssload-plane {
+    background: rgba(189, 45, 45, 0.98);
+    transform: translate3d(0px, 0, 0);
+    -o-transform: translate3d(0px, 0, 0);
+    -ms-transform: translate3d(0px, 0, 0);
+    -webkit-transform: translate3d(0px, 0, 0);
+    -moz-transform: translate3d(0px, 0, 0);
+    animation: cssload-trans2 1.165s linear infinite 0.265s backwards;
+    -o-animation: cssload-trans2 1.165s linear infinite 0.265s backwards;
+    -ms-animation: cssload-trans2 1.165s linear infinite 0.265s backwards;
+    -webkit-animation: cssload-trans2 1.165s linear infinite 0.265s backwards;
+    -moz-animation: cssload-trans2 1.165s linear infinite 0.265s backwards;
+}
+
+#cssload-bottom .cssload-plane {
+    z-index: 2000;
+    animation: cssload-trans3 1.165s ease-in infinite 0.4s backwards;
+    -o-animation: cssload-trans3 1.165s ease-in infinite 0.4s backwards;
+    -ms-animation: cssload-trans3 1.165s ease-in infinite 0.4s backwards;
+    -webkit-animation: cssload-trans3 1.165s ease-in infinite 0.4s backwards;
+    -moz-animation: cssload-trans3 1.165s ease-in infinite 0.4s backwards;
+}
+
+#cssload-top {
+    width: 73px;
+    height: 28px;
+    transform: skew(-15deg, 0);
+    -o-transform: skew(-15deg, 0);
+    -ms-transform: skew(-15deg, 0);
+    -webkit-transform: skew(-15deg, 0);
+    -moz-transform: skew(-15deg, 0);
+    z-index: 100;
+}
+
+#cssload-middle {
+    width: 45px;
+    height: 28px;
+    left: 27px;
+    top: 21px;
+    transform: skew(-15deg, -38deg);
+    -o-transform: skew(-15deg, -38deg);
+    -ms-transform: skew(-15deg, -38deg);
+    webkit-transform: skew(-15deg, -38deg);
+    -moz-transform: skew(-15deg, -38deg);
+}
+
+#cssload-bottom {
+    width: 73px;
+    height: 28px;
+    top: 41px;
+    left: 26px;
+    transform: skew(-15deg, 0);
+    -o-transform: skew(-15deg, 0);
+    -ms-transform: skew(-15deg, 0);
+    -webkit-transform: skew(-15deg, 0);
+    -moz-transform: skew(-15deg, 0);
+}
+
+@keyframes cssload-trans1 {
+    from {
+        transform: translate3d(-344px, 0, 0);
+    }
+    to {
+        transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-o-keyframes cssload-trans1 {
+    from {
+        -o-transform: translate3d(-344px, 0, 0);
+    }
+    to {
+        -o-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-ms-keyframes cssload-trans1 {
+    from {
+        -ms-transform: translate3d(-344px, 0, 0);
+    }
+    to {
+        -ms-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-webkit-keyframes cssload-trans1 {
+    from {
+        -webkit-transform: translate3d(-344px, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-moz-keyframes cssload-trans1 {
+    from {
+        -moz-transform: translate3d(-344px, 0, 0);
+    }
+    to {
+        -moz-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@keyframes cssload-trans2 {
+    from {
+        transform: translate3d(73px, 0, 0);
+    }
+    to {
+        transform: translate3d(-220px, 0, 0);
+    }
+}
+
+@-o-keyframes cssload-trans2 {
+    from {
+        -o-transform: translate3d(73px, 0, 0);
+    }
+    to {
+        -o-transform: translate3d(-220px, 0, 0);
+    }
+}
+
+@-ms-keyframes cssload-trans2 {
+    from {
+        -ms-transform: translate3d(73px, 0, 0);
+    }
+    to {
+        -ms-transform: translate3d(-220px, 0, 0);
+    }
+}
+
+@-webkit-keyframes cssload-trans2 {
+    from {
+        -webkit-transform: translate3d(73px, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(-220px, 0, 0);
+    }
+}
+
+@-moz-keyframes cssload-trans2 {
+    from {
+        -moz-transform: translate3d(73px, 0, 0);
+    }
+    to {
+        -moz-transform: translate3d(-220px, 0, 0);
+    }
+}
+
+@keyframes cssload-trans3 {
+    from {
+        transform: translate3d(-303px, 0, 0);
+    }
+    to {
+        transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-o-keyframes cssload-trans3 {
+    from {
+        -o-transform: translate3d(-303px, 0, 0);
+    }
+    to {
+        -o-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-ms-keyframes cssload-trans3 {
+    from {
+        -ms-transform: translate3d(-303px, 0, 0);
+    }
+    to {
+        -ms-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-webkit-keyframes cssload-trans3 {
+    from {
+        -webkit-transform: translate3d(-303px, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(73px, 0, 0);
+    }
+}
+
+@-moz-keyframes cssload-trans3 {
+    from {
+        -moz-transform: translate3d(-303px, 0, 0);
+    }
+    to {
+        -moz-transform: translate3d(73px, 0, 0);
+    }
 }
